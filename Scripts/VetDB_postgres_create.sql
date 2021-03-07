@@ -1,4 +1,4 @@
-CREATE TABLE "Vet" (
+CREATE TABLE IF NOT EXISTS "Vet" (
 	"cvr" char(8) NOT NULL,
 	"name" character varying(100) NOT NULL,
 	"phone" character varying(100) NOT NULL,
@@ -10,7 +10,7 @@ CREATE TABLE "Vet" (
 
 
 
-CREATE TABLE "City" (
+CREATE TABLE IF NOT EXISTS "City" (
 	"zipcode" character varying(10) NOT NULL,
 	"name" character varying(100) NOT NULL,
 	CONSTRAINT "City_pk" PRIMARY KEY ("zipcode")
@@ -20,7 +20,7 @@ CREATE TABLE "City" (
 
 
 
-CREATE TABLE "Address" (
+CREATE TABLE IF NOT EXISTS "Address" (
 	"id" serial NOT NULL,
 	"street" character varying(100) NOT NULL,
 	"city_zipcode" character varying(10) NOT NULL,
@@ -31,7 +31,7 @@ CREATE TABLE "Address" (
 
 
 
-CREATE TABLE "Caretaker" (
+CREATE TABLE IF NOT EXISTS "Caretaker" (
 	"id" serial NOT NULL,
 	"name" character varying(100) NOT NULL,
 	"phone" character varying(100) NOT NULL,
@@ -43,7 +43,7 @@ CREATE TABLE "Caretaker" (
 
 
 
-CREATE TABLE "Pet" (
+CREATE TABLE IF NOT EXISTS "Pet" (
 	"id" serial NOT NULL,
 	"name" character varying(100) NOT NULL,
 	"age" int NOT NULL,
@@ -55,7 +55,7 @@ CREATE TABLE "Pet" (
 
 
 
-CREATE TABLE "PetCaretaker" (
+CREATE TABLE IF NOT EXISTS "PetCaretaker" (
 	"caretaker_id" int NOT NULL,
 	"pet_id" int NOT NULL,
 	CONSTRAINT "PetCaretaker_pk" PRIMARY KEY ("caretaker_id","pet_id")
@@ -65,7 +65,7 @@ CREATE TABLE "PetCaretaker" (
 
 
 
-CREATE TABLE "Cat" (
+CREATE TABLE IF NOT EXISTS "Cat" (
 	"pet_id" serial NOT NULL,
 	"life_count" int NOT NULL,
 	CONSTRAINT "Cat_pk" PRIMARY KEY ("pet_id")
@@ -75,7 +75,7 @@ CREATE TABLE "Cat" (
 
 
 
-CREATE TABLE "Dog" (
+CREATE TABLE IF NOT EXISTS "Dog" (
 	"pet_id" serial NOT NULL,
 	"barkpitch" character(2) NOT NULL,
 	CONSTRAINT "Dog_pk" PRIMARY KEY ("pet_id")
@@ -85,10 +85,10 @@ CREATE TABLE "Dog" (
 
 
 
-ALTER TABLE "Vet" ADD CONSTRAINT "Vet_fk0" FOREIGN KEY ("address_id") REFERENCES "Address"("id");
+ALTER TABLE  "Vet" ADD CONSTRAINT "Vet_fk0" FOREIGN KEY ("address_id") REFERENCES "Address"("id");
 
 
-ALTER TABLE "Address" ADD CONSTRAINT "Address_fk0" FOREIGN KEY ("city_zipcode") REFERENCES "City"("zipcode");
+ALTER TABLE  "Address" ADD CONSTRAINT "Address_fk0" FOREIGN KEY ("city_zipcode") REFERENCES "City"("zipcode");
 
 ALTER TABLE "Caretaker" ADD CONSTRAINT "Caretaker_fk0" FOREIGN KEY ("address_id") REFERENCES "Address"("id");
 
