@@ -29,6 +29,9 @@ We started by excluding Single-table as in our case it seemed like the cons outw
 
 Then we had to choose between the remaining two stategies: Joint-table vs Table-per-class.
 We discussed the pros and the cons of both strategies and ended choosing the one with no redundency: Joint-table strategy.
+
+Also since we have polymorphic relationsship between pets and their subclasses, it seemed a viable strategy.
+
 ## Implementation
 
 
