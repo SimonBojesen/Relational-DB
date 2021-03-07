@@ -31,3 +31,8 @@ insert into "PetCaretaker" values (1, 1), (1, 11),
 								  
 insert into "Cat" values (1, 9), (5, 4), (12, 1) on conflict do nothing;
 insert into "Dog" values (2, 'E2'), (20, 'C4'), (17, 'D5') on conflict do nothing;
+
+SELECT setval(pg_get_serial_sequence('"Pet"', 'id'), (SELECT max(id) FROM "Pet"));
+SELECT setval(pg_get_serial_sequence('"Caretaker"', 'id'), (SELECT max(id) FROM "Caretaker"));
+SELECT setval(pg_get_serial_sequence('"Address"', 'id'), (SELECT max(id) FROM "Address"));
+
