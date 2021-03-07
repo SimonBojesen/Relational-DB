@@ -6,7 +6,7 @@ see assignment description [here](01-relational-db.pdf)
 
 ![image](Diagram/ER.png)
 
-# Inheretance strategies pros and cons
+# Inheritance strategies pros and cons
 
 ## Joint-table strategy
 Pros: No redundancy. Good support for polymorphic relationsships
