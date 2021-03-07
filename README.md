@@ -2,7 +2,7 @@
 
 ## ER-Diagram
 
-
+![image](Diagram/ER.png)
 
 ## Joint-table strategy
 
